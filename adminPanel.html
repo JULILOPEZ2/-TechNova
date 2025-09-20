@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }
+        th, td { padding: 12px; border: 1px solid #ccc; text-align: left; }
+        th { background: #eaeaea; }
+        .actions button { margin-right: 5px; }
+        .add-user-form { margin-top: 30px; background: #fff; padding: 20px; border-radius: 5px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="text"], input[type="email"] { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 3px; }
+        button { padding: 8px 16px; border: none; background: #007bff; color: #fff; border-radius: 3px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Usuarios</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Juan Pérez</td>
+                <td>juan.perez@email.com</td>
+                <td>Administrador</td>
+                <td class="actions">
+                    <button>Editar</button>
+                    <button>Eliminar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Maria Gómez</td>
+                <td>maria.gomez@email.com</td>
+                <td>Usuario</td>
+                <td class="actions">
+                    <button>Editar</button>
+                    <button>Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form class="add-user-form">
+        <h2>Agregar Usuario</h2>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="rol">Rol:</label>
+        <input type="text" id="rol" name="rol" required>
+        <button type="submit">Agregar</button>
+    </form>
+</body>
+</html>
