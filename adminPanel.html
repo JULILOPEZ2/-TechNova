@@ -1,64 +1,220 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Gestión de Usuarios</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
-        h1 { color: #333; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; }
-        th, td { padding: 12px; border: 1px solid #ccc; text-align: left; }
-        th { background: #eaeaea; }
-        .actions button { margin-right: 5px; }
-        .add-user-form { margin-top: 30px; background: #fff; padding: 20px; border-radius: 5px; }
-        label { display: block; margin-bottom: 5px; }
-        input[type="text"], input[type="email"] { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 3px; }
-        button { padding: 8px 16px; border: none; background: #007bff; color: #fff; border-radius: 3px; cursor: pointer; }
-        button:hover { background: #0056b3; }
-    </style>
-</head>
-<body>
-    <h1>Gestión de Usuarios</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Rol</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Juan Pérez</td>
-                <td>juan.perez@email.com</td>
-                <td>Administrador</td>
-                <td class="actions">
-                    <button>Editar</button>
-                    <button>Eliminar</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Maria Gómez</td>
-                <td>maria.gomez@email.com</td>
-                <td>Usuario</td>
-                <td class="actions">
-                    <button>Editar</button>
-                    <button>Eliminar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TechNova Solutions — Home</title>
 
-    <form class="add-user-form">
-        <h2>Agregar Usuario</h2>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="rol">Rol:</label>
-        <input type="text" id="rol" name="rol" required>
-        <button type="submit">Agregar</button>
-    </form>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+<style>
+
+  .hero{
+    background:#fff; background-position: center; background-size: cover; background-repeat: no-repeat;
+    color:#000; text-align:center; padding:35px 16px 28px;
+  }
+  .hero__inner{max-width:1200px; margin:0 auto}
+  .hero h1{font-size:48px; font-weight:800; margin-bottom:10px}
+  .hero p{font-size:20px; font-weight:500}
+
+  
+  .consulta{ float:left }
+
+  /* ===== SLIDER ===== */
+  .slider{ position:relative; margin:22px auto 6px; max-width:800px; overflow:hidden; border-radius:12px }
+  .slides{ display:flex; width:100%; transition:transform .5s ease }
+  .slides img{ width:100%; height:360px; object-fit:cover; flex:0 0 100% }
+
+  .ctrl{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:rgba(0,0,0,.45); color:#fff; border:0; width:40px; height:40px;
+    border-radius:999px; cursor:pointer; font-size:24px; line-height:40px;
+  }
+  .ctrl:hover{ background:rgba(0,0,0,.65) }
+  .prev{ left:10px } .next{ right:10px }
+
+  .dots{ position:absolute; left:0; right:0; bottom:10px; display:flex; gap:8px; justify-content:center }
+  .dots button{
+    width:10px; height:10px; border-radius:50%; border:0; background:rgba(255,255,255,.55); cursor:pointer
+  }
+  .dots button.active{ background:#fff }
+
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px){
+    .hero h1{font-size:36px}
+    .hero p{font-size:18px}
+    .slides img{ height:220px }
+  }
+</style>
+
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="topbar" role="banner">
+    <div class="brand">TechNova Solutions</div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a class="btn-outline" href="indexlogin.html">Login</a>
+    </nav>
+  </header>
+
+  <h2>Administración de Usuarios</h2>
+  
+  <div> <br> </div>
+
+  <form class="form-container">
+    <div class="form-group">
+      <label for="username">Nombre Usuario</label>
+      <input type="text" id="username" placeholder="user">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo</label>
+      <input type="email" id="email" placeholder="e-mail">
+    </div>
+
+    <div class="form-group">
+      <label for="status">Estado</label>
+      <input type="text" id="status" placeholder="Status">
+    </div>
+
+    <button type="submit" class="btn">Buscar</button>
+  </form>
+
+  <div> <br> <br> <br> </div>
+
+ <table>
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Propietario</th>
+        <th>Correo</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>mario.perez</td>
+        <td>Mario Hernando, Perez Cantor</td>
+        <td>m.hernando@micorreo.com</td>
+        <td><input type="checkbox" checked></td>
+        <td class="actions">
+          <button title="Editar">
+            <img src="imagenes/logos/pen-2.svg" alt="Editar" width="18">
+          </button>
+          <button title="Eliminar">
+            <img src="imagenes/logos/bin-delete.svg" alt="Editar" width="18">
+          </button>
+          <button title="Más">
+            <img src="imagenes/logos/dots-3-horizontal.svg" alt="Editar" width="18">
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>jorge.elias</td>
+        <td>Jorge Elias Moreno</td>
+        <td>j.elias1820@micorreo.com</td>
+        <td><input type="checkbox"></td>
+        <td class="actions">
+          <button title="Editar">
+            <img src="imagenes/logos/pen-2.svg" alt="Editar" width="18">
+          </button>
+          <button title="Eliminar">
+            <img src="imagenes/logos/bin-delete.svg" alt="Editar" width="18">
+          </button>
+          <button title="Más">
+            <img src="imagenes/logos/dots-3-horizontal.svg" alt="Editar" width="18">
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>karen.ruiz</td>
+        <td>Karen Julieth, Ruiz Jimenez</td>
+        <td>k.ruiz2220@micorreo.com</td>
+        <td><input type="checkbox"></td>
+        <td class="actions">
+          <button title="Editar">
+            <img src="imagenes/logos/pen-2.svg" alt="Editar" width="18">
+          </button>
+          <button title="Eliminar">
+            <img src="imagenes/logos/bin-delete.svg" alt="Editar" width="18">
+          </button>
+          <button title="Más">
+            <img src="imagenes/logos/dots-3-horizontal.svg" alt="Editar" width="18">
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>marcos.lopez</td>
+        <td>Marcos E, Lopez Martínez</td>
+        <td>m.lopez@micorreo.com</td>
+        <td><input type="checkbox" checked></td>
+        <td class="actions">
+          <button title="Editar">
+            <img src="imagenes/logos/pen-2.svg" alt="Editar" width="18">
+          </button>
+          <button title="Eliminar">
+            <img src="imagenes/logos/bin-delete.svg" alt="Editar" width="18">
+          </button>
+          <button title="Más">
+            <img src="imagenes/logos/dots-3-horizontal.svg" alt="Editar" width="18">
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div> <br> <br> <br> </div>
+
+
+   <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>TechNova Solutions</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Compañía</h4>
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Política De Privacidad</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Preguntas</a></li>
+          <li><a href="#">Compras</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Soporte</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 TechNova Solutions · All rights reserved
+    </div>
+  </footer>
 </body>
-</html>
