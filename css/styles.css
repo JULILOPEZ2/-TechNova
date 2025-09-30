@@ -1,17 +1,40 @@
  
   /* NAVBAR */
+
   .topbar{
     position:sticky; top:0; z-index:10;
     display:flex; justify-content:space-between; align-items:center;
     background:#000; border-bottom:2px solid #333;
     padding:20px 30px; height:80px;
   }
+ 
   .brand{font-weight:700; font-size:22px; color:#fff}
   .nav a{color:#ccc; text-decoration:none; margin:0 15px; font-size:16px}
   .nav a:hover{color:#fff}
   .btn-outline{border:1px solid #fff; padding:10px 14px; border-radius:10px; color:#fff; text-decoration:none}
   .btn-outline:hover{background:#fff; color:#000}
-  
+
+.nav {
+  display: flex;
+  gap: 20px; 
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 60px; 
+  width: auto;  
+  display: block; 
+  color:#999;
+}
+  .circulo {
+  width: 100px;
+  height: 100px;
+  background-color: #bdbdbd;
+  border-radius: 50%;
+}
+
+
+
   
 /* FOOTER */
   .footer{
@@ -87,11 +110,18 @@
   }
 
  /* busqueda en admin panel */
-    .form-container {
+     .form-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(295px, 0.5fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
       align-items: end;
+    }
+    
+    .form-wrapper {
+      /*display: flex;*/
+      justify-content: center;   /* centra horizontalmente */
+      align-items: center;       /* centra verticalmente */
+      /*min-height: 60vh;          /* ajusta según el espacio que quieras ocupar */
     }
 
     .form-group {
@@ -132,8 +162,15 @@ table {
       border-collapse: collapse;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);      
     }
+
+
+  .center-container {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    padding: 5px;
+  }
 
     thead {
       background-color: #f5f7fa;
@@ -167,8 +204,7 @@ table {
     }
 
     /* Acciones */
-    .actions {
-      display: flex;
+    .actions { 
       gap: 10px;
       justify-content: center;
     }
